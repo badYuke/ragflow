@@ -39,14 +39,14 @@ class TableStructureRecognizer(Recognizer):
 
     def __init__(self):
         try:
-            super().__init__(self.labels, "tsr", os.path.join(get_project_base_directory(), "rag/res/deepdoc"))
+            super().__init__(self.labels, "tsr", os.path.join(get_project_base_directory(), "rag", "res", "deepdoc"))
         except Exception:
             super().__init__(
                 self.labels,
                 "tsr",
                 snapshot_download(
                     repo_id="InfiniFlow/deepdoc",
-                    local_dir=os.path.join(get_project_base_directory(), "rag/res/deepdoc"),
+                    local_dir=os.path.join(get_project_base_directory(), "rag", "res", "deepdoc"),
                     local_dir_use_symlinks=False,
                 ),
             )
@@ -579,7 +579,7 @@ class TableStructureRecognizer(Recognizer):
 
         from ais_bench.infer.interface import InferSession
 
-        model_dir = os.path.join(get_project_base_directory(), "rag/res/deepdoc")
+        model_dir = os.path.join(get_project_base_directory(), "rag", "res", "deepdoc")
         model_file_path = os.path.join(model_dir, "tsr.om")
 
         if not os.path.exists(model_file_path):

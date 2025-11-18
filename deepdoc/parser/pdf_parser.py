@@ -92,7 +92,7 @@ class RAGFlowPdfParser:
         except Exception:
             logging.info("No torch found.")
         try:
-            model_dir = os.path.join(get_project_base_directory(), "rag/res/deepdoc")
+            model_dir = os.path.join(get_project_base_directory(), "rag", "res", "deepdoc")
             self.updown_cnt_mdl.load_model(os.path.join(model_dir, "updown_concat_xgb.model"))
         except Exception:
             model_dir = snapshot_download(repo_id="InfiniFlow/text_concat_xgb_v1.0", local_dir=os.path.join(get_project_base_directory(), "rag/res/deepdoc"), local_dir_use_symlinks=False)

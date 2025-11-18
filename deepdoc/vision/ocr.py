@@ -551,7 +551,7 @@ class OCR:
             try:
                 model_dir = os.path.join(
                         get_project_base_directory(),
-                        "rag/res/deepdoc")
+                        "rag", "res", "deepdoc")
                 
                 # Append muti-gpus task to the list
                 if settings.PARALLEL_DEVICES > 0:
@@ -566,7 +566,7 @@ class OCR:
 
             except Exception:
                 model_dir = snapshot_download(repo_id="InfiniFlow/deepdoc",
-                                              local_dir=os.path.join(get_project_base_directory(), "rag/res/deepdoc"),
+                                              local_dir=os.path.join(get_project_base_directory(), "rag", "res", "deepdoc"),
                                               local_dir_use_symlinks=False)
                 
                 if settings.PARALLEL_DEVICES > 0:

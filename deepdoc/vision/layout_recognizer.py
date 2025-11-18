@@ -47,10 +47,10 @@ class LayoutRecognizer(Recognizer):
 
     def __init__(self, domain):
         try:
-            model_dir = os.path.join(get_project_base_directory(), "rag/res/deepdoc")
+            model_dir = os.path.join(get_project_base_directory(), "rag", "res", "deepdoc")
             super().__init__(self.labels, domain, model_dir)
         except Exception:
-            model_dir = snapshot_download(repo_id="InfiniFlow/deepdoc", local_dir=os.path.join(get_project_base_directory(), "rag/res/deepdoc"), local_dir_use_symlinks=False)
+            model_dir = snapshot_download(repo_id="InfiniFlow/deepdoc", local_dir=os.path.join(get_project_base_directory(), "rag", "res", "deepdoc"), local_dir_use_symlinks=False)
             super().__init__(self.labels, domain, model_dir)
 
         self.garbage_layouts = ["footer", "header", "reference"]
@@ -254,7 +254,7 @@ class AscendLayoutRecognizer(Recognizer):
     def __init__(self, domain):
         from ais_bench.infer.interface import InferSession
 
-        model_dir = os.path.join(get_project_base_directory(), "rag/res/deepdoc")
+        model_dir = os.path.join(get_project_base_directory(), "rag", "res", "deepdoc")
         model_file_path = os.path.join(model_dir, domain + ".om")
 
         if not os.path.exists(model_file_path):

@@ -29,7 +29,7 @@ class Dealer:
         self.lookup_num = 100000000
         self.load_tm = time.time() - 1000000
         self.dictionary = None
-        path = os.path.join(get_project_base_directory(), "rag/res", "synonym.json")
+        path = os.path.join(get_project_base_directory(), "rag", "res", "synonym.json")
         try:
             self.dictionary = json.load(open(path, 'r'))
             self.dictionary = { (k.lower() if isinstance(k, str) else k): v for k, v in self.dictionary.items() }

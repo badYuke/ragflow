@@ -609,7 +609,7 @@ def parse():
     if url:
         if not is_valid_url(url):
             return get_json_result(data=False, message="The URL format is invalid", code=RetCode.ARGUMENT_ERROR)
-        download_path = os.path.join(get_project_base_directory(), "logs/downloads")
+        download_path = os.path.join(get_project_base_directory(), "logs", "downloads")
         os.makedirs(download_path, exist_ok=True)
         from seleniumwire.webdriver import Chrome, ChromeOptions
 
