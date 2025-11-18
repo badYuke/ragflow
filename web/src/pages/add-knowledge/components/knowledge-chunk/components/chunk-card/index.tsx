@@ -57,6 +57,8 @@ const ChunkCard = ({
 
   return (
     <Card
+      onDoubleClick={handleContentDoubleClick}
+      onClick={handleContentClick}
       className={classNames(styles.chunkCard, {
         [`${theme === 'dark' ? styles.cardSelectedDark : styles.cardSelected}`]:
           selected,
@@ -75,11 +77,7 @@ const ChunkCard = ({
           </Popover>
         )}
 
-        <section
-          onDoubleClick={handleContentDoubleClick}
-          onClick={handleContentClick}
-          className={styles.content}
-        >
+        <section className={styles.content}>
           <div
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(item.content_with_weight),
