@@ -27,6 +27,11 @@ from nltk import word_tokenize
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 from common.file_utils import get_project_base_directory
 
+from nltk.data import path as nltk_data_path
+# 优先使用项目根目录下的 `nltk_data`，避免在系统路径上反复下载资源
+_project_nltk_data = os.path.join(get_project_base_directory(), "nltk_data")
+if os.path.isdir(_project_nltk_data) and _project_nltk_data not in nltk_data_path:
+    nltk_data_path.insert(0, _project_nltk_data)
 
 class RagTokenizer:
     def key_(self, line):
@@ -61,7 +66,7 @@ class RagTokenizer:
     def __init__(self, debug=False):
         self.DEBUG = debug
         self.DENOMINATOR = 1000000
-        self.DIR_ = os.path.join(get_project_base_directory(), "rag/res", "huqie")
+        self.DIR_ = os.path.join(get_project_base_directory(), "rag","res", "huqie")
 
         self.stemmer = PorterStemmer()
         self.lemmatizer = WordNetLemmatizer()
